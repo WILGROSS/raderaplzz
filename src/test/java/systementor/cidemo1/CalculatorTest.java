@@ -51,7 +51,7 @@ class CalculatorTest {
     @Test
     void addShouldReturn3() {
         int result = calculator.add(a,b);
-        assertEquals(5,result);
+        assertEquals(3,result);
     }
 
     @Test
