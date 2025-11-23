@@ -57,23 +57,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>io.github.ctrf-io</groupId>
-                <artifactId>ctrf-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>transform</goal>
-                        </goals>
-                        <phase>test</phase>
-                        <configuration>
-                            <inputDirectory>${project.build.directory}/surefire-reports</inputDirectory>
-                            <outputDirectory>${project.basedir}/ctrf</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
