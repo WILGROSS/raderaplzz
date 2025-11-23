@@ -37,7 +37,7 @@ public class SystementorSeleniumTest {
         driver.get("https://systementor.se/");
         logger.info("Navigated to Systementor");
 
-        WebElement omOssKlick = driver.findElement(By.linkText("Om oss"));
+        WebElement omOssKlick = driver.findElement(By.linkText("Om ozz"));
 
         // Klicka
         omOssKlick.click();
