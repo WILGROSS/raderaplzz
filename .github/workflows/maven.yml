@@ -30,11 +30,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: TestReport
-      if: always()
-      run: |
-        echo "## Test Results" >> $GITHUB_STEP_SUMMARY
-        echo "- Branch: $GITHUB_REF" >> $GITHUB_STEP_SUMMARY
-        echo "- Workflow: $GITHUB_WORKFLOW" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "Check details in the logs to see if something has failed." >> $GITHUB_STEP_SUMMARY
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: target/surefire-reports/*.xml
