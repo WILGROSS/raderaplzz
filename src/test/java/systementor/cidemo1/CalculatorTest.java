@@ -51,13 +51,13 @@ class CalculatorTest {
     @Test
     void addShouldReturn3() {
         int result = calculator.add(a,b);
-        assertEquals(5,result);
+        assertEquals(3,result);
     }
 
     @Test
     void subtractShouldReturnNegative1() {
         int result = calculator.subtract(a,b);
-        assertEquals(-11,result);
+        assertEquals(-1,result);
     }
 
     @Test
