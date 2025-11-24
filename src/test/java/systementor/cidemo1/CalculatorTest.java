@@ -72,7 +72,7 @@ class CalculatorTest {
         logger.info("Logger: Result from calculator: " + result);
 
         try {
-            assertEquals(5, result);
+            assertEquals(3, result);
             logger.info("Logger: SUCCESS: Test passed! addShouldReturn3 returned 3");
         } catch (AssertionError e) {
             logger.severe("Logger: FAIL: Expected 3 but got " + result);
