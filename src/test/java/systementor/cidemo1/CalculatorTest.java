@@ -56,7 +56,7 @@ class CalculatorTest {
         System.out.println("Println INFO: Result from calculator: " + result);
 
         try {
-            assertEquals(5, result);
+            assertEquals(3, result);
             System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned 3");
         } catch (AssertionError e) {
             System.out.println("Println ERROR: Test failed! Expected 3 but got: " + result);
@@ -66,16 +66,16 @@ class CalculatorTest {
 
     @Test
     void addShouldReturn3_withLogger() {
-        logger.info("Starting test addShouldReturn3...");
+        logger.info("Logger: Starting test addShouldReturn3...");
 
         int result = calculator.add(a, b);
-        logger.info("Result from calculator: " + result);
+        logger.info("Logger: Result from calculator: " + result);
 
         try {
-            assertEquals(3, result);
-            logger.info("SUCCESS: Test passed! addShouldReturn3 returned 3");
+            assertEquals(5, result);
+            logger.info("Logger: SUCCESS: Test passed! addShouldReturn3 returned 3");
         } catch (AssertionError e) {
-            logger.severe("FAIL: Expected 3 but got " + result);
+            logger.severe("Logger: FAIL: Expected 3 but got " + result);
             throw e;
         }
     }
