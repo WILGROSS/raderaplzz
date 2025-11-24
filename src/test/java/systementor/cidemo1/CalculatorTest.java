@@ -17,7 +17,6 @@ class CalculatorTest {
     private final int b = 2;
 
 
-
     private final int devideA = 4;
     private final int devideB = 2;
 
@@ -26,8 +25,6 @@ class CalculatorTest {
     void setUp() {
         calculator = new Calculator();
     }
-
-
 
 
     @Test
@@ -42,16 +39,45 @@ class CalculatorTest {
 
         int result = devideA / devideB;
         assertEquals(2,result);
-
     }
-
-
 
 
     @Test
     void addShouldReturn3() {
         int result = calculator.add(a,b);
         assertEquals(3,result);
+    }
+
+    @Test
+    void addShouldReturn3_withPrintln() {
+        System.out.println("INFO: Starting test addShouldReturn3...");
+
+        int result = calculator.add(a, b);
+        System.out.println("INFO: Result from calculator: " + result);
+
+        try {
+            assertEquals(3, result);
+            System.out.println("SUCCESS: Test passed! addShouldReturn3 returned 3");
+        } catch (AssertionError e) {
+            System.out.println("ERROR: Test failed! Expected 3 but got: " + result);
+            throw e;
+        }
+    }
+
+    @Test
+    void addShouldReturn3_withLogger() {
+        logger.info("Starting test addShouldReturn3...");
+
+        int result = calculator.add(a, b);
+        logger.info("Result from calculator: " + result);
+
+        try {
+            assertEquals(3, result);
+            logger.info("SUCCESS: Test passed! addShouldReturn3 returned 3");
+        } catch (AssertionError e) {
+            logger.severe("FAIL: Expected 3 but got " + result);
+            throw e;
+        }
     }
 
     @Test
