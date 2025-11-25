@@ -56,7 +56,7 @@ class CalculatorTest {
         System.out.println("Println INFO: Result from calculator: " + result);
 
         try {
-            assertEquals(3, result);
+            assertEquals(5, result);
             System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned 3");
         } catch (AssertionError e) {
             System.out.println("Println ERROR: Test failed! Expected 3 but got: " + result);
