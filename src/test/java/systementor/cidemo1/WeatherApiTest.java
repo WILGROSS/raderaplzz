@@ -13,7 +13,7 @@ public class WeatherApiTest {
 
         Response response = RestAssured
                 .given()
-                .get("GET https://api.thingspeak.com/update?api_key=ASDF1234&field1=0");
+                .get("GET https://api.thingspeak.com/update?api_key=RQZXY61HSJURBPZL&field1=0");
 
         assertEquals(200, response.statusCode(),
                 "Expected API to return 200 OK");
