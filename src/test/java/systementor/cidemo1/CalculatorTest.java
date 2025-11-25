@@ -32,23 +32,22 @@ class CalculatorTest {
         assertEquals(3,result);
     }
 
-    @Test
-    void addShouldReturn3_withPrintln() {
-        System.out.println("Println INFO: Starting test addShouldReturn3...");
 
-        int result = calculator.add(a, b) + 2;
-        System.out.println("Println INFO: Result from calculator: " + result);
+    @Test
+    void addShouldReturn3_withLogger() {
+        logger.info("Starting test addShouldReturn3...");
+
+        int result = calculator.add(a, b) + 5;
+        logger.info("Result from calculator: " + result);
 
         try {
             assertEquals(3, result);
-            System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned 3");
+            logger.info("SUCCESS: Test passed! addShouldReturn3 returned 3");
         } catch (AssertionError e) {
-            System.out.println("Println ERROR: Test failed! Expected 3 but got: " + result);
+            logger.severe("FAIL: Expected 3 but got " + result);
             throw e;
         }
     }
-
-
 
     @Test
     void subtractShouldReturnNegative1() {
