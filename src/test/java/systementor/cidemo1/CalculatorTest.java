@@ -3,6 +3,10 @@ package systementor.cidemo1;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -89,6 +93,20 @@ class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.divide(5,0));
     }
 
+    @Test
+    void forecastShouldRequireApiKey() throws Exception {
+        HttpClient client = HttpClient.newHttpClient();
 
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41"))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // Vi låtsas att API:et ska kräva credentials
+        assertEquals(401, response.statusCode(),
+                "Expected API to require authentication, but it was open.");
+    }
 
 }
