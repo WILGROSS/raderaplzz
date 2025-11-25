@@ -26,22 +26,6 @@ class CalculatorTest {
         calculator = new Calculator();
     }
 
-
-    @Test
-    void divideWithLogging() {
-
-        logger.info("divide " + devideA + " with " + devideB);
-
-        if (b == 0){
-            logger.severe("divide by zero!!");
-            throw new IllegalArgumentException("divide by zero");
-        }
-
-        int result = devideA / devideB;
-        assertEquals(2,result);
-    }
-
-
     @Test
     void addShouldReturn3() {
         int result = calculator.add(a,b);
@@ -63,6 +47,7 @@ class CalculatorTest {
             throw e;
         }
     }
+
 
 
     @Test
