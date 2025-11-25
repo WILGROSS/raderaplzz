@@ -28,7 +28,7 @@ class CalculatorTest {
 
     @Test
     void addShouldReturn3() {
-        int result = calculator.add(a,b);
+        int result = calculator.add(a,b) + 2;
         assertEquals(3,result);
     }
 
