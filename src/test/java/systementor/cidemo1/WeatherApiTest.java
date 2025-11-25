@@ -13,17 +13,11 @@ public class WeatherApiTest {
 
         Response response = RestAssured
                 .given()
-                .get("https://api.open-meteo.com/v1/forecast" +
-                        "?latitude=52.52" +
-                        "&longitude=13.41" +
-                        "&current=temperature_2m,wind_speed_10m" +
-                        "&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m");
+                .get("GET https://api.thingspeak.com/update?api_key=RQZXY61HSJURBPZL&field1=0");
 
-        // förväntan
         assertEquals(200, response.statusCode(),
                 "Expected API to return 200 OK");
 
-        // debug-logg (visas i Actions)
         System.out.println("Response status: " + response.statusCode());
         System.out.println("Body preview: " + response.body().asString());
     }
