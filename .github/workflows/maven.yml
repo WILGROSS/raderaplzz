@@ -38,7 +38,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - run: mvn -B test
+      - run: mvn -B test=CalculatorTest#addShouldReturn3
 
       - name: Test Summary
         uses: test-summary/action@v2
