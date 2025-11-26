@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
+    private static final Logger logger = Logger.getLogger(Calculator.class.getName());
     private Calculator calculator;
     private final int a = 1;
     private final int b = 2;
@@ -39,6 +40,24 @@ class CalculatorTest {
             throw e;
         }
     }
+
+    @Test
+    void addShouldReturn3_withLogger(){
+        logger.info("LOGGER: Starting test addShouldReturn3_withLogger...");
+
+        int result = calculator.add(a, b);
+        logger.info("LOGGER: Result from calculator: " + result);
+
+        try {
+            assertEquals(3, result);
+            logger.info("LOGGER: Test passed! addShouldReturn3 returned " + result);
+        }
+        catch (AssertionError e) {
+            logger.severe("LOGGER: Test failed! Expected 3 but got: " + result);
+            throw e;
+        }
+    }
+
 
     @Test
     void subtractShouldReturnNegative1() {
