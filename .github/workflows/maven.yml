@@ -37,8 +37,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
 
       - run: mvn -B test
 
