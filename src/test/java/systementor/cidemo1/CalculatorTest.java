@@ -23,35 +23,19 @@ class CalculatorTest {
         int result = calculator.add(a,b);
         assertEquals(3,result);
     }
-
-    @Test
-    void addShouldReturn3_withPrintln() {
-        System.out.println("Println INFO: Starting test addShouldReturn3_withPrintln");
-
-        int result = calculator.add(a, b);
-        System.out.println("Println INFO: Result from calculator: " + result);
-
-        try {
-            assertEquals(3, result);
-            System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned "  + result);
-        } catch (AssertionError e) {
-            System.out.println("Println ERROR: Test failed! Expected 3 but got: " + result);
-            throw e;
-        }
-    }
     @Test
     void addShouldReturn3_withLogger(){
-        logger.info("Logger: Starting test addShouldReturn3_withLogger");
+        logger.info("1- Logger: Starting test addShouldReturn3_withLogger");
 
         int result = calculator.add(a, b);
-        logger.info("Logger: Result from calculator: " + result);
+        logger.info("2- Logger: Result from calculator: " + result);
 
         try {
             assertEquals(3, result);
-            System.out.println("Logger: Success! Expected 3 and got: " + result);
+            System.out.println("3- Logger: Success! Expected 3 and got: " + result);
         }
         catch (AssertionError e) {
-            logger.info("Logger: Test failed! Expected 3 but got: " + result);
+            logger.info("3- Logger: Test failed! Expected 3 but got: " + result);
             throw e;
         }
     }
