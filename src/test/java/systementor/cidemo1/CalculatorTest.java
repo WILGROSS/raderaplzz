@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
-
+    private static final Logger logger = Logger.getLogger(Calculator.class.getName());
     private Calculator calculator;
     private final int a = 1;
     private final int b = 2;
@@ -26,19 +26,36 @@ class CalculatorTest {
 
     @Test
     void addShouldReturn3_withPrintln() {
-        System.out.println("Println INFO: Starting test addShouldReturn3...");
+        System.out.println("Println INFO: Starting test addShouldReturn3_withPrintln");
 
         int result = calculator.add(a, b);
         System.out.println("Println INFO: Result from calculator: " + result);
 
         try {
             assertEquals(3, result);
-            System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned 3");
+            System.out.println("Println SUCCESS: Test passed! addShouldReturn3 returned "  + result);
         } catch (AssertionError e) {
             System.out.println("Println ERROR: Test failed! Expected 3 but got: " + result);
             throw e;
         }
     }
+    @Test
+    void addShouldReturn3_withLogger(){
+        logger.info("Logger: Starting test addShouldReturn3_withLogger");
+
+        int result = calculator.add(a, b);
+        logger.info("Logger: Result from calculator: " + result);
+
+        try {
+            assertEquals(3, result);
+            System.out.println("Logger: Success! Expected 3 and got: " + result);
+        }
+        catch (AssertionError e) {
+            logger.info("Logger: Test failed! Expected 3 but got: " + result);
+            throw e;
+        }
+    }
+
 
     @Test
     void subtractShouldReturnNegative1() {
