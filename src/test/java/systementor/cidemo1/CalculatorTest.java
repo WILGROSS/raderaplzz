@@ -43,7 +43,7 @@ class CalculatorTest {
     void addShouldReturn3_withLogger(){
         logger.info("Logger: Starting test addShouldReturn3_withLogger");
 
-        int result = calculator.add(a, b);
+        int result = calculator.add(a, b) + 5;
         logger.info("Logger: Result from calculator: " + result);
 
         try {
