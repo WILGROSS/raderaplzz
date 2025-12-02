@@ -74,6 +74,18 @@ public class CountryServiceTest {
     }
 
     @Test
+    void getPopulationDensityReturnsCorrectValue() {
+        logger.info("Starting test getPopulationDensityReturnsCorrectValue");
+        when(apiClient.fetchCountryByName("Latvia"))
+            .thenReturn(LATVIA);
+
+        var result = countryService.getPopulationDensity("Latvia");
+        logger.info("Result from getPopulationDensity: " + result);
+
+        assertEquals(1829000 / 64559.0, result);
+    }
+
+    @Test
     void getGoogleMapsUrlReturnsCorrectGoogleMapsUrl() {
         logger.info("Starting test getGoogleMapsUrl returns correct GoogleMapsUrl");
         when(apiClient.fetchCountryByName("Latvia"))
