@@ -42,12 +42,31 @@ public class CountryServiceTest {
             "https://goo.gl/maps/iQpUkH7ghq31ZtXe9"
     );
 
+    private static final Country SWEDEN = new Country(
+            "Latvia",
+            "Republic of Latvia",
+            "Latvija",
+            "Latvijas Republikas",
+            "Riga",
+            "Europe",
+            "Northern Europe",
+            Map.of(
+                    "sve", "Swedish",
+                    "eng", "English"
+            ),
+            List.of("NOR", "FIN"),
+            1829000,
+            64559.0,
+            "https://goo.gl/maps/iQpUkH7ghq31ZtXe9"
+    );
+
+
     @Test
     void getSortedLanguagesReturnsAlphabeticallySortedLangues() {
-        when(apiClient.fetchCountryByName("Latvia"))
-                .thenReturn(LATVIA);
+        logger.info("Starting test getSortedLanguagesReturnsAlphabeticallySortedLangues...");
 
         var result = countryService.getSortedLanguages("Latvia");
+        logger.info("Result from getSortedLanguages: " + result);
 
         assertEquals(List.of("English", "Latvian"), result);
     }
@@ -87,7 +106,7 @@ public class CountryServiceTest {
         var result = countryService.getPopulationDensity("Latvia");
 
         logger.info("Result from getPopulationDensity: " + result);
-        assertEquals(1829000 / 64559.0, result);
+        assertEquals(LATVIA.getPopulation() / LATVIA.getArea(), result);
     }
 
 
