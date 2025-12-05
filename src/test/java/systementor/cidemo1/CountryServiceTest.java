@@ -65,6 +65,9 @@ public class CountryServiceTest {
     void getSortedLanguagesReturnsAlphabeticallySortedLangues() {
         logger.info("Starting test getSortedLanguagesReturnsAlphabeticallySortedLangues...");
 
+        when(apiClient.fetchCountryByName("Latvia"))
+                .thenReturn(LATVIA);
+
         var result = countryService.getSortedLanguages("Latvia");
         logger.info("Result from getSortedLanguages: " + result);
 

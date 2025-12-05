@@ -6,7 +6,7 @@ import java.util.Map;
 public class CountryApiClient {
     public Country fetchCountryByName(String name){
 
-        Country SWEDEN = new Country(
+        Country hejsan = new Country(
                 "Sweden",
                 "Kingdom of Sweden",
                 "Sverige",
@@ -24,6 +24,6 @@ public class CountryApiClient {
                 "https://goo.gl/maps/iQpUkH7ghq31ZtXe9"
         );
 
-        return SWEDEN;
+        return hejsan;
     }
 }
