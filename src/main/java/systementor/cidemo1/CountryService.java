@@ -42,6 +42,7 @@ public class CountryService {
 
     public double getPopulationDensity(String name) {
         Country country = apiClient.fetchCountryByName(name);
+
         if (country.getArea() <= 0) {
             throw new IllegalArgumentException("Area must be greater than 0");
         }
