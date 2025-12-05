@@ -3,8 +3,8 @@ package systementor.cidemo1;
 import java.util.List;
 import java.util.Map;
 
-public interface CountryApiClient {
-    public default Country fetchCountryByName(String name){
+public class CountryApiClient {
+    public Country fetchCountryByName(String name){
 
         Country SWEDEN = new Country(
                 "Sweden",
