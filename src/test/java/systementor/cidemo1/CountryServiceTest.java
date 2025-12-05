@@ -16,6 +16,10 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith({MockitoExtension.class})
 public class CountryServiceTest {
+
+    CountryApiClient notMockedApiClient = new CountryApiClient();
+    CountryService notMockedCountryservice = new CountryService(notMockedApiClient);
+
     @Mock
     CountryApiClient apiClient;
 
@@ -42,36 +46,15 @@ public class CountryServiceTest {
             "https://goo.gl/maps/iQpUkH7ghq31ZtXe9"
     );
 
-    private static final Country SWEDEN = new Country(
-            "Latvia",
-            "Republic of Latvia",
-            "Latvija",
-            "Latvijas Republikas",
-            "Riga",
-            "Europe",
-            "Northern Europe",
-            Map.of(
-                    "sve", "Swedish",
-                    "eng", "English"
-            ),
-            List.of("NOR", "FIN"),
-            1829000,
-            64559.0,
-            "https://goo.gl/maps/iQpUkH7ghq31ZtXe9"
-    );
-
 
     @Test
     void getSortedLanguagesReturnsAlphabeticallySortedLangues() {
         logger.info("Starting test getSortedLanguagesReturnsAlphabeticallySortedLangues...");
 
-        when(apiClient.fetchCountryByName("Latvia"))
-                .thenReturn(LATVIA);
-
-        var result = countryService.getSortedLanguages("Latvia");
+        var result = notMockedCountryservice.getSortedLanguages("Sweden");
         logger.info("Result from getSortedLanguages: " + result);
 
-        assertEquals(List.of("English", "Latvian"), result);
+        assertEquals(List.of("English", "Swedish"), result);
     }
 
 
